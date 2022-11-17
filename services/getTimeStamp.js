@@ -1,7 +1,7 @@
 function getTimeStamp(dateStr) {
   const date = getDate(dateStr)
 
-  if (!date.getDate()) return { error: "Invalid date given" }
+  if (!date.getDate()) return { error: "Invalid Date" }
 
   const unix = date.getTime()
   const utc = date.toUTCString()
@@ -11,8 +11,10 @@ function getTimeStamp(dateStr) {
 function getDate(dateStr) {
   let date = new Date()
 
-  if (isUnix(dateStr)) date.setTime(dateStr)
-  else date = new Date(dateStr)
+  if (!!dateStr) {
+    if (isUnix(dateStr)) date.setTime(dateStr)
+    else date = new Date(dateStr)
+  }
 
   return date
 }

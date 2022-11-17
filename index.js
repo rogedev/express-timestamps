@@ -15,7 +15,7 @@ app.use(express.static("public"))
 
 app.get("/", (req, res) => res.sendFile(__dirname + "/views/index.html"))
 
-app.get("/api/:date", (req, res) => res.send(getTimeStamp(req.params.date)))
+app.get("/api/:date?", (req, res) => res.send(getTimeStamp(req.params.date)))
 
 app.listen(port, () => console.log(`app listening on port ${port}`))
 
