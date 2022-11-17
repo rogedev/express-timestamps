@@ -10,9 +10,9 @@ const port = process.env.PORT || 3030
 
 app.use(cors({ optionsSuccessStatus: 200 }))
 
-app.use(express.static("src/public"))
+app.use(express.static("public"))
 
-app.get("/", (req, res) => res.send("hello world"))
+app.get("/", (req, res) => res.sendFile(__dirname + "/views/index.html"))
 
 app.listen(port, () => console.log(`app listening on port ${port}`))
 
