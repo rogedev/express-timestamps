@@ -12,8 +12,11 @@ function getDate(dateStr) {
   let date = new Date()
 
   if (!!dateStr) {
-    if (isUnix(dateStr)) date.setTime(dateStr)
-    else date = new Date(dateStr)
+    const isUnix = isUnix(dateStr)
+
+    if (isUnix) date.setTime(dateStr)
+
+    if (!isUnix) date = new Date(dateStr)
   }
 
   return date
